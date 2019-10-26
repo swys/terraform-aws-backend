@@ -70,7 +70,7 @@ resource "aws_s3_bucket" "tf_backend_bucket" {
     target_bucket = "${aws_s3_bucket.tf_backend_logs_bucket.id}"
     target_prefix = "log/"
   }
-  tags {
+  tags = {
     Description = "Terraform S3 Backend bucket which stores the terraform state for account ${data.aws_caller_identity.current.account_id}."
     ManagedByTerraform = "true"
     TerraformModule = "terraform-aws-backend"
